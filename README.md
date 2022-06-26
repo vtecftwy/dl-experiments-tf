@@ -1,2 +1,2 @@
-# vae-tf
-Experiments about VAE with tensorflow and keras
+# Experiments with VAEs
+This repo is for several experiments with training VAEs.
