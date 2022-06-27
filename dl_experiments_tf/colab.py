@@ -1,4 +1,5 @@
 import shutil
+import sys
 
 from pathlib import Path
 
@@ -7,7 +8,7 @@ try:
     RUNNING_ON_COLAB = True
 except:
     RUNNING_ON_COLAB = False
-    print('Not running on Colab !!!!!!!!!!!!!')
+    print(f"Not running on Colab when importing {__name__} !!!!!!!!!!!!!")
 
 def dummy_fctn_colab():
     print('I am a dumnmy function withing the `colab` module')
@@ -16,7 +17,8 @@ def setup_colab():
     if RUNNING_ON_COLAB:
         drive.mount('/content/gdrive')
     else:
-        print('Not running on colab')
+        fctn_name = sys._getframe().f_code.co_name
+        print(f"Function {fctn_name} is not running on Colab !!!!!!!!!!!!!")
 
 def unpack_compressed_dataset(p2compressed, p2dataset=None):
     """Moves compressed dataset file from drive to colab server and unpack it, unless alread exist on colab"""
