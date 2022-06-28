@@ -23,12 +23,8 @@ def setup_colab():
 def unpack_compressed_dataset(p2compressed, p2dataset=None):
     """Moves compressed dataset file from drive to colab server and unpack it, unless alread exist on colab"""
 
-    print('p2compressed:', p2compressed)
-    print('p2dataset', p2dataset)
-
     if p2dataset is None: 
         p2dataset = Path(p2compressed.stem)
-        print('p2dataset if None', p2dataset.absolute())
 
     if p2dataset.is_dir():
         print(f"Dataset already uploaded and extracted in {p2dataset.name}")
