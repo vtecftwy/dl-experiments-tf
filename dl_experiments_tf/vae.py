@@ -103,7 +103,7 @@ def img_decoder(latent_space_dim: int = 200) -> Model:
 def vae_model(enc_input_shape: Tuple[int, int, int], latent_space_dim: int = 200, p2weights: Path = None) -> Model:
     """ """
     img_inputs = keras.Input(shape=enc_input_shape, name='img_input_layer')
-    img_enc = img_encoder(enc_input_shape)
+    img_enc = img_encoder(enc_input_shape=enc_input_shape, latent_space_dim=latent_space_dim)
     img_latent_space_sampler = sampling(latent_space_dim, latent_space_dim)
     img_dec = img_decoder(latent_space_dim)
     
